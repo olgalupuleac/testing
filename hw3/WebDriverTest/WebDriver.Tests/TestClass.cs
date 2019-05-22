@@ -52,6 +52,10 @@ namespace WebDriver.Tests
         [TestCase("", "summary", Description = "Empty description")]
         [TestCase("descriptапра", "апрrtt", Description = "Unicode")]
         [TestCase("^7%6", "&*^", Description = "Not letters")]
+        [TestCase("   descri  ption  ", "summary summary", Description = "Trailing whitespaces in description")]
+        [TestCase("description", "   summary   ", Description = "Trailing whitespaces in summary")]
+        [TestCase("    ", "summary", Description = "Whitespace description")]
+        [TestCase("description", "    ", Description = "Whitespace summary")]
         public void CheckIssue(string description, string summary)
         {
             var issue = new IssuePage(_webDriver);
@@ -69,9 +73,25 @@ namespace WebDriver.Tests
             Assert.Multiple(() =>
                 {
                     Assert.AreEqual(description, descriptionElement.Text);
-                    Assert.AreEqual(summary, summaryElement.Text);
+                    Assert.AreEqual(summary.Trim(), summaryElement.Text);
                 }
             );
+        }
+
+        [Test]
+        [TestCase("description")]
+        public void EmptySummary(string description)
+        {
+            var issue = new IssuePage(_webDriver);
+            issue.CreateIssue(description, "");
+            issue.SubmitIssue();
+            var wait =
+                new WebDriverWait(_webDriver, TimeSpan.FromSeconds(5));
+            wait.IgnoreExceptionTypes(
+                typeof(StaleElementReferenceException));
+            wait.Until(
+                SeleniumExtras.WaitHelpers.ExpectedConditions.PresenceOfAllElementsLocatedBy(
+                    By.ClassName("error")));
         }
     }
 }
