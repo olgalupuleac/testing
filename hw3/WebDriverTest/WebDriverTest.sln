@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriverTest", "WebDriverTest\WebDriverTest.csproj", "{D42A3383-7653-4806-B7F5-20082FBACA76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriver.Source", "WebDriverTest\WebDriver.Source.csproj", "{D42A3383-7653-4806-B7F5-20082FBACA76}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDriver.Tests", "WebDriver.Tests\WebDriver.Tests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
 EndProject

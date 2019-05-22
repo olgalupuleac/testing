@@ -48,8 +48,10 @@ namespace WebDriver.Tests
         }
 
         [Test]
-        [TestCase("description", "summary")]
-        [TestCase("", "summary")]
+        [TestCase("description", "summary", Description = "Basic")]
+        [TestCase("", "summary", Description = "Empty description")]
+        [TestCase("descriptапра", "апрrtt", Description = "Unicode")]
+        [TestCase("^7%6", "&*^", Description = "Not letters")]
         public void CheckIssue(string description, string summary)
         {
             var issue = new IssuePage(_webDriver);

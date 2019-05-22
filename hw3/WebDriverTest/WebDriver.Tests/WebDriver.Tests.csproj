@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebDriverTest\WebDriverTest.csproj">
+    <ProjectReference Include="..\WebDriverTest\WebDriver.Source.csproj">
       <Project>{d42a3383-7653-4806-b7f5-20082fbaca76}</Project>
-      <Name>WebDriverTest</Name>
+      <Name>WebDriver.Source</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
